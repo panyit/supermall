@@ -71,7 +71,7 @@ export default {
         //2.根据iid请求详情数据
         getDetail(this.iid).then(res => {
             const data = res.result;
-            //console.log(data);
+            console.log(data);
             //1.获取顶部轮播图数据
             this.topImages = data.itemInfo.topImages;
             //2.获取商品信息
@@ -88,7 +88,7 @@ export default {
                 }, (err) => {
                 console.log(err);
             });*/
-            this.commentInfo = new Comment(data.rate.list[0])
+            this.commentInfo = new Comment(data.rate);
 
             //当前面的模板都渲染完成后，执行一次该函数;;
             //根据最新的数据，对应的dom是已经被渲染出来，但是可能图片依然没有加载完

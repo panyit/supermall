@@ -40,19 +40,23 @@ export class Shop{
 
 export class GoodsParam{
     constructor(info, rule){
-        this.image = info.images ? info.image[0] : '';
+        //this.image = info.images ? info.image[0] : '';
+        //this.image = info.image[0];
         this.infos = info.set;
         this.sizes = rule.tables;
     }
 }
 
 export class Comment{
+    //constructor(comment, total){
     constructor(comment){
-        this.avatar = comment.user.avatar;
-        this.username = comment.user.uname;
-        this.comment = comment.content;
-        this.time = comment.created;
-        this.style = comment.style;
-        this.images = comment.images;
+        if(comment.imgTotal != 0){
+            this.avatar = comment.list[0].user.avatar;
+            this.username = comment.list[0].user.uname;
+            this.comment = comment.list[0].content;
+            this.time = comment.list[0].created;
+            this.style = comment.list[0].style;
+            this.images = comment.list[0].images;
+        }
     }
 }
